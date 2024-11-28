@@ -65,7 +65,7 @@
 }
 
 .gv-toggle::after {
-    content: "G/V";
+    content: url(../img/logo.png);
 }
 
 /* name */
@@ -89,7 +89,6 @@
 /* Navigation */
 .header .nav {
     display: flex;
-    /* background: #404042; */
     width: 340px;
     height: 40px;
     justify-content: space-between;

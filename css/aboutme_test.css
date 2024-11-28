@@ -51,6 +51,7 @@
     transition: all 0.3s ease;
     overflow: hidden;
     white-space: nowrap;
+    
 
 }
 
@@ -164,41 +165,34 @@
 }
 
 
+/* 캔버스 팔레트 스타일 */
+.palette {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    align-items: flex-start;
+    padding: 10px 0;
+    width: 100%;
+    height: 300px; /* 고정 높이 */
+    background-color: #fff; /* 흰색 배경 */
+    
+}
 
-
-/* 탭 기본 스타일 */
 .tab.tab {
     flex: 1;
-    height: 100px;
+    height: 60px;
     text-align: center;
     padding: 15px 20px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     color: #333;
     border: none;
-    border-radius: 50%; /* 팔레트 물감 느낌을 위한 둥근 모양 */
-    margin: 10px; /* 탭 간 여백 추가 */
-    position: relative;
-    transition: all 0.3s ease, transform 0.3s ease; /* 부드러운 효과 추가 */
+    cursor: pointer;
+    transition: all 0.3s ease;
     font-family: var(--sub-font);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 물감 팔레트 느낌 강조 */
-.tab.tab::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    height: 90%;
-    border-radius: 50%; /* 물감 퍼진 느낌 */
-    transform: translate(-50%, -50%);
-    z-index: -1; /* 텍스트 뒤에 배경 표시 */
-    
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+    position: relative;
 }
 
 /* 탭 고유 색상 */
@@ -207,51 +201,26 @@
 .tab-motto { background-color: #FDBCE7; }
 .tab-interest { background-color: #8AE0D2; }
 .tab-contact { background-color: #A9AAFA; }
+.tab.tab:hover {
+    opacity: 0.9;
+}
 
-/* 탭 커지는 효과 */
+/* 활성화된(클릭된) 탭 */
 .tab.active {
-    flex: 1; /* 옆으로 조금 더 확장 */
-    height: 100px; /* 커지면서 물감 느낌 강조 */
-    transform: scale(1.2); /* 크기 증가 */
-    z-index: 1; /* 클릭된 탭 위로 */
-    font-size: 18px;
-    color: #fff;
-    transition: transform 0.3s ease-in-out; /* 커지는 효과 부드럽게 */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* 클릭 시 더 뚜렷한 그림자 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    flex: 2; /* 옆으로 확장 */
+    height: 120px; /* 밑으로 확장 */
+    font-size: 18px; /* 텍스트 크기 확대 */
+    padding: 20px; /* 내부 여백 증가 */
+    color: #333; /* 텍스트 색상 유지 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 활성화된 탭 더 뚜렷한 그림자 */
+    transition: flex 0.4s ease, height 0.3s ease; /* 부드러운 애니메이션 */
 }
 
 /* 비활성화된 탭 */
 .tab:not(.active) {
-    opacity: 0.8; /* 약간 흐려진 느낌 */
-    transform: scale(1); /* 크기 원래대로 */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* 부드러운 전환 효과 */
-}
-
-/* 팔레트 컨테이너 조정 */
-.palette {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* 여러 줄로 나뉘도록 설정 */
-    margin: 20px auto;
-    padding: 20px;
-    width: 90%; /* 화면 크기에 맞게 조정 */
-    max-width: 800px; /* 최대 크기 제한 */
-    background: #fefefe; /* 팔레트 배경 흰색 */
-    border: 2px solid #ccc;
-    border-radius: 15px; /* 팔레트 둥근 모서리 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* 탭 Hover 효과 */
-.tab.tab:hover {
-    opacity: 1;
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
+    flex: 1; /* 크기 원래대로 */
+    height: 60px; /* 초기 높이 */
+    transition: flex 0.4s ease, height 0.3s ease, opacity 0.3s ease; /* 부드러운 전환 효과 */
 }
 
 
@@ -260,17 +229,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 20px auto; */
+    margin: 20px auto;
     border: 1px solid #ddd;
-   /*  padding: 10px; */
-   /*  background-color: #fafafa; */
-    
+    padding: 10px;
+    background-color: #fafafa;
 }
 
 #paintCanvas {
- /*  border: 1px solid black; */
+  border: 1px solid black;
   cursor: crosshair;
-  /* margin-top: 20px; */
+  margin-top: 20px;
   display: block;
   background-color: white; /* 배경색 추가 */
   position: relative; /* 콘텐츠 표시를 위해 position 설정 */
@@ -307,7 +275,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px;
-    height: 200px;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
@@ -322,19 +289,10 @@
     display: none;
   }
   
-  .popup-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
   .popup-content p {
     font-size: 18px;
     margin-bottom: 20px;
-    font-family: 'Eulyoo1945-Regular';
-    line-height: 1.5;
+    font-family: 'Arial', sans-serif;
   }
   
   .popup-content button {
