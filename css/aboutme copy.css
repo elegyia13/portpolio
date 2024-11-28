@@ -1,0 +1,353 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Bentham&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+.wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+}
+
+.header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #F1EDE7;
+    cursor: pointer;
+
+}
+
+
+.header .logo:hover {
+    background-color: #404042;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: #fff;
+}
+
+
+/* G/V Toggle */
+.gv-toggle {
+    background-color: #FAF8F2;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+/* Hover effect to expand and change text */
+.gv-toggle:hover {
+    padding: 10px 30px;
+    width: auto;
+    content: "GYEORE'S VERSION";
+}
+
+.gv-toggle:hover::after {
+    content: "GYEORE'S VERSION";
+}
+
+.gv-toggle::after {
+    content: url(../img/logo.png);
+}
+
+/* name */
+
+.header .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #F1EDE7;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* Navigation */
+.header .nav {
+    display: flex;
+    /* background: #404042; */
+    width: 340px;
+    height: 40px;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.header .nav a {
+    font-family: var(--sub-font);
+    width: 110px;
+    height: 40px;
+    background-color: #F1EDE7;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.nav a:hover {
+    background-color: #404042;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: #fff;
+}
+
+.header .nav a:nth-child(2) {
+    border-radius: 20px;
+}
+
+.nav a:nth-child(2):hover {
+    border-radius: 0;
+}
+
+
+/* 탑 컨테이너 */
+.top-container {
+    width: 1280px;
+    margin: 0 auto;
+    height: 750px;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #fff;
+    text-align: center;
+    border: 2px solid #ccc;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+    height: 60px;
+    width: 100%;
+
+}
+
+.top-bar .close,
+.top-bar .about {
+    font-size: 18px;
+}
+
+.top-bar .about {
+    position: absolute;
+    left: 46%;
+}
+
+
+
+
+/* 탭 기본 스타일 */
+.tab.tab {
+    flex: 1;
+    height: 100px;
+    text-align: center;
+    padding: 15px 20px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+    border: none;
+    border-radius: 50%; /* 팔레트 물감 느낌을 위한 둥근 모양 */
+    margin: 10px; /* 탭 간 여백 추가 */
+    position: relative;
+    transition: all 0.3s ease, transform 0.3s ease; /* 부드러운 효과 추가 */
+    font-family: var(--sub-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 물감 팔레트 느낌 강조 */
+.tab.tab::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%; /* 물감 퍼진 느낌 */
+    transform: translate(-50%, -50%);
+    z-index: -1; /* 텍스트 뒤에 배경 표시 */
+    
+}
+
+/* 탭 고유 색상 */
+.tab-about { background-color: #D5B1F4; }
+.tab-skills { background-color: #FFF39A; }
+.tab-motto { background-color: #FDBCE7; }
+.tab-interest { background-color: #8AE0D2; }
+.tab-contact { background-color: #A9AAFA; }
+
+/* 탭 커지는 효과 */
+.tab.active {
+    flex: 1; /* 옆으로 조금 더 확장 */
+    height: 100px; /* 커지면서 물감 느낌 강조 */
+    transform: scale(1.2); /* 크기 증가 */
+    z-index: 1; /* 클릭된 탭 위로 */
+    font-size: 18px;
+    color: #fff;
+    transition: transform 0.3s ease-in-out; /* 커지는 효과 부드럽게 */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* 클릭 시 더 뚜렷한 그림자 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* 비활성화된 탭 */
+.tab:not(.active) {
+    opacity: 0.8; /* 약간 흐려진 느낌 */
+    transform: scale(1); /* 크기 원래대로 */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+/* 팔레트 컨테이너 조정 */
+.palette {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* 여러 줄로 나뉘도록 설정 */
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%; /* 화면 크기에 맞게 조정 */
+    max-width: 800px; /* 최대 크기 제한 */
+    background: #fefefe; /* 팔레트 배경 흰색 */
+    border: 2px solid #ccc;
+    border-radius: 15px; /* 팔레트 둥근 모서리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 탭 Hover 효과 */
+.tab.tab:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* 캔버스 스타일 */
+.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 20px auto; */
+    border: 1px solid #ddd;
+   /*  padding: 10px; */
+   /*  background-color: #fafafa; */
+    
+}
+
+#paintCanvas {
+ /*  border: 1px solid black; */
+  cursor: crosshair;
+  /* margin-top: 20px; */
+  display: block;
+  background-color: white; /* 배경색 추가 */
+  position: relative; /* 콘텐츠 표시를 위해 position 설정 */
+}
+
+.intro_all, .skills, .motto, .interest, .contact {
+  display: none; /* 기본 숨김 상태 */
+  position: absolute; /* 캔버스 위에 겹치기 */
+  top: 50%; /* 캔버스 중앙 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* 콘텐츠 크기 */
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: rgba(255, 255, 255, 0.8); /* 배경색 (투명) */
+  border-radius: 10px; /* 모서리 둥글게 */
+  padding: 20px; /* 내부 여백 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 */
+  z-index: 10; /* 캔버스 위에 위치 */
+  transition: opacity 0.3s ease-in-out; /* 전환 효과 */
+}
+
+/* 색칠되었을 때 활성화 */
+.content-container.active {
+  display: block; /* 보이기 */
+  opacity: 1; /* 불투명 */
+}
+
+/* 팝업 스타일 */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .popup.hidden {
+    display: none;
+  }
+  
+  .popup-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .popup-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: 'Eulyoo1945-Regular';
+    line-height: 1.5;
+  }
+  
+  .popup-content button {
+    padding: 10px 20px;
+    background-color: #404042;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup-content button:hover {
+    background-color: #666;
+  }
+  
+

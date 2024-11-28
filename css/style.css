@@ -1,0 +1,207 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+
+:root {
+    --title-font: "Poiret One", sans-serif;
+    --subtit-font: "Parisienne", cursive;
+    --sub-font: "Lexend", sans-serif;
+}
+
+
+
+/* Container */
+.wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+}
+
+.header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #F1EDE7;
+    cursor: pointer;
+
+}
+
+
+.header .logo:hover {
+    background-color: #404042;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: #fff;
+}
+
+
+/* G/V Toggle */
+.gv-toggle {
+    background-color: #FAF8F2;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+   
+}
+
+/* Hover effect to expand and change text */
+.gv-toggle:hover {
+    padding: 10px 30px;
+    width: auto;
+    content: "GYEORE'S VERSION";
+}
+
+.gv-toggle:hover::after {
+    content: "GYEORE'S VERSION";
+}
+
+.gv-toggle::after {
+    content: url(../img/logo.png);
+}
+
+/* name */
+
+.header .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #F1EDE7;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* Navigation */
+.header .nav {
+    display: flex;
+    width: 340px;
+    height: 40px;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.header .nav a {
+    font-family: var(--sub-font);
+    width: 110px;
+    height: 40px;
+    background-color: #F1EDE7;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.nav a:hover {
+    background-color: #404042;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: #fff;
+}
+
+.header .nav a:nth-child(2) {
+    border-radius: 20px;
+}
+
+.nav a:nth-child(2):hover {
+    border-radius: 0;
+}
+
+/* Main Title */
+.title {
+    font-family: var(--title-font);
+    font-size: 128px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #333;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.sub_tit {
+    position: absolute;
+    font-family: var(--subtit-font);
+    font-size: 48px;
+    color: #AEADA7;
+    transform: rotate(-17deg);
+    right: 17%;
+    bottom: 24%;
+}
+
+/* Illustrations */
+
+.canvas {
+    position: absolute;
+    left: 8%;
+    top: 13%;
+    width: 536px;
+    height: 702px;
+    cursor: pointer;
+}
+
+.canvas:hover {
+   content: url(../img/canvas2.png);
+
+}
+
+.flower {
+    position: absolute;
+    top: -2%;
+    right: 20%;
+    width: 354px;
+    height: 662px;
+}
+
+.flower:hover {
+    content: url(../img/flower2.png);
+}
+
+.brush {
+    position: absolute;
+    bottom: 9%;
+    right: 7%;
+    /* width: 747px;
+    height: 289px; */
+    width: 700px;
+    height: 230px;
+    transform: rotate(-34.355deg);
+}
+
+.paper {
+    position: absolute;
+    width: 833px;
+    height: 1088px;
+    right: -10%;
+    bottom: -40%;
+    z-index: -1;
+}

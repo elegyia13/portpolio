@@ -1,0 +1,261 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+}
+
+.header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #F1EDE7;
+    cursor: pointer;
+
+}
+
+
+.header .logo:hover {
+    background-color: #404042;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: #fff;
+}
+
+
+/* G/V Toggle */
+.gv-toggle {
+    background-color: #FAF8F2;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+/* Hover effect to expand and change text */
+.gv-toggle:hover {
+    padding: 10px 30px;
+    width: auto;
+    content: "GYEORE'S VERSION";
+}
+
+.gv-toggle:hover::after {
+    content: "GYEORE'S VERSION";
+}
+
+.gv-toggle::after {
+    content: "G/V";
+}
+
+/* name */
+
+.header .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #F1EDE7;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* Navigation */
+.header .nav {
+    display: flex;
+    /* background: #404042; */
+    width: 340px;
+    height: 40px;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.header .nav a {
+    font-family: var(--sub-font);
+    width: 110px;
+    height: 40px;
+    background-color: #F1EDE7;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.nav a:hover {
+    background-color: #404042;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: #fff;
+}
+
+.header .nav a:nth-child(2) {
+    border-radius: 20px;
+}
+
+.nav a:nth-child(2):hover {
+    border-radius: 0;
+}
+
+
+.top-container {
+    width: 1280px;
+    margin: 0 auto;
+    height: 750px;
+    overflow: hidden; /* 프레임 밖으로 넘치지 않도록 설정 */
+    background: #fff;
+    border: 2px solid #ccc;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+  }
+  
+  .top-bar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    height: 60px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* 탑바가 가려지지 않도록 */
+  }
+  
+  .top-bar .about {
+    margin: 0 auto;
+  }
+  
+  /* 고정된 헤더 */
+  .fixed-header {
+    position: sticky;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 99;
+  }
+  
+  .fixed-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: "Permanent Marker";
+    font-size: 60px;
+    padding-top: 35px;
+  }
+  
+  .fixed-header img:nth-child(2) {
+    
+    width: 169px;
+    height: 195px;
+    transform: rotate(17.826deg);
+  }
+
+  .fixed-header img:nth-child(3) {
+    width: 59px;
+    height: 231px;
+    
+  }
+  .fixed-header img:nth-child(4) {
+    width: 118px;
+    height: 174px;
+    transform: rotate(-19.336deg);
+  }
+
+
+  
+  /* 캔버스 */
+.canvas {
+    width: 3000px; /* 캔버스 크기를 프레임보다 크게 */
+    height: 2000px; /* 캔버스 크기를 프레임보다 크게 */
+    background-color: #e3f2fd;
+    background-image: radial-gradient(circle, #90caf9 1px, transparent 1px);
+    background-size: 40px 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%); /* 초기 위치를 프레임 중심으로 설정 */
+    cursor: grab;
+  }
+  
+  
+  .draggable-card {
+    width: 180px;
+    height: 300px;
+    background-color: transparent;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: absolute;
+    overflow: hidden; /* 카드 크기 초과 이미지를 숨김 */
+    
+  }
+  
+  .draggable-card img {
+    width: 100%; /* 카드 내부 크기에 맞춤 */
+    height: 100%; /* 비율 유지 */
+    pointer-events: none; /* 이미지를 드래그하지 않고 카드만 드래그 가능 */
+  }
+  
+  
+  
+ /* 카드 배치: V자 형태 */
+.card-1 {
+    left: 35%; /* 화면 중심에서 왼쪽으로 더 멀리 */
+    top: 20%; /* 상단 */
+  }
+  
+  .card-2 {
+    left: 42%; /* 화면 중심에서 약간 왼쪽 */
+    top: 30%; /* 중간 위 */
+  }
+  
+  .card-3 {
+    left: 52%; /* 화면 중심 */
+    top: 40%; /* 중심 */
+    transform: translateX(-50%);
+  }
+  
+  .card-4 {
+    left: 57%; /* 화면 중심에서 약간 오른쪽 */
+    top: 30%; /* 중간 위 */
+  }
+  
+  .card-5 {
+    left: 65%; /* 화면 중심에서 오른쪽으로 더 멀리 */
+    top: 20%; /* 상단 */
+  }
+
+  

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0.5; url=./aboutme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test1 - Yigyeore</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/aboutme copy.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/aboutme copy.js" defer></script>
+
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <h1 class="logo gv-toggle"></h1>
+            <div class="name"><a href="index.html">YI GYEO RE</a></div>
+            <nav class="nav">
+                <a href="aboutme.html">About Me</a>
+                <a href="work.html">Work</a>
+                <a href="photo.html">Photo</a>
+            </nav>
+        </header>
+
+        <section class="top-container">
+            <div class="top-bar">
+                <div class="close"><a href="index.html">CLOSE</a></div>
+                <div class="about">ABOUT ME!</div>
+            </div>
+
+            <!-- 팔레트 (탭 컨테이너가 팔레트로 변경) -->
+            <div class="tab-container palette">
+                <div class="tab tab-about active" data-color="#D5B1F4" onclick="setColor('#D5B1F4'),openTab('about')">
+                    ABOUT ME!</div>
+                <div class="tab tab-skills" data-color="#FFF39A" onclick="setColor('#FFF39A'),openTab('skills')">SKILLS
+                    <br> as a Designer
+                </div>
+                <div class="tab tab-motto" data-color="#FDBCE7" onclick="setColor('#FDBCE7'),openTab('motto')">MOTTO
+                </div>
+                <div class="tab tab-interest" data-color="#8AE0D2" onclick="setColor('#8AE0D2'),openTab('interest')">
+                    INTEREST</div>
+                <div class="tab tab-contact" data-color="#A9AAFA" onclick="setColor('#A9AAFA'),openTab('contact')">
+                    CONTACT</div>
+            </div><!-- //.tab-container palette -->
+            <!-- 캔버스 영역 -->
+            <article class="show">
+                <canvas id="paintCanvas" class="content-container active" width="800" height="400"></canvas>
+            </article><!-- //.show -->
+        </section><!-- //.top-container -->
+    <!-- 팝업 컨테이너 -->
+<div id="customPopup" class="popup hidden">
+    <div class="popup-content">
+      <p id="popupMessage">Please Draw On Me!</p>
+      <button id="closePopup">Close</button>
+    </div>
+  </div>
+  
+
+</body>
+
+
+</html>
